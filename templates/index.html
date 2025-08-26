@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Waste Classifier</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <div class="upload-section">
+      <form action="/predict" method="POST" enctype="multipart/form-data">
+        <div class="upload-box">
+          <img src="{{ url_for('static', filename='upload-icon.png') }}" alt="upload icon" class="upload-icon">
+          <p>Drag to upload photo of waste</p>
+          <input type="file" name="image" accept="image/*" required>
+        </div>
+        <button type="submit" class="upload-btn">Classify Waste</button>
+      </form>
+    </div>
+    <div class="result-section">
+      <form action="/submit" method="POST">
+        <h3>Request Pickup</h3>
+        <input type="text" name="address" placeholder="Enter your address" required>
+        <button type="submit" class="upload-btn">Submit</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
